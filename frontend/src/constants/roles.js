@@ -1,0 +1,38 @@
+import { PERMISSIONS } from './permissions';
+
+export const ROLES = {
+  admin: [
+    PERMISSIONS.USERS.VIEW,
+    PERMISSIONS.USERS.CREATE,
+    PERMISSIONS.USERS.UPDATE,
+    PERMISSIONS.USERS.DELETE,
+    PERMISSIONS.JOBS.VIEW,
+    PERMISSIONS.JOBS.CREATE,
+    PERMISSIONS.JOBS.UPDATE,
+    PERMISSIONS.JOBS.DELETE,
+    PERMISSIONS.COMPANIES.CREATE,
+    PERMISSIONS.APPLICATIONS.VIEW,
+  ],
+  candidate: [
+    PERMISSIONS.JOBS.VIEW,
+    PERMISSIONS.SAVED_JOBS.VIEW, //only own
+    PERMISSIONS.SAVED_JOBS.CREATE, 
+    PERMISSIONS.SAVED_JOBS.DELETE, //only own
+    PERMISSIONS.APPLICATIONS.CREATE,
+    PERMISSIONS.APPLICATIONS.VIEW, //only own
+    PERMISSIONS.APPLICATIONS.DELETE, //only own
+  ],
+  recruiter: [
+    PERMISSIONS.JOBS.VIEW, // only own
+    PERMISSIONS.JOBS.CREATE,
+    PERMISSIONS.JOBS.UPDATE, // only own
+    PERMISSIONS.JOBS.DELETE, //only own
+    PERMISSIONS.COMPANIES.CREATE, //only own
+    PERMISSIONS.APPLICATIONS.VIEW, //only on created jobs
+  ],
+};
+
+
+// const allPermissions = Object.values(ROLES)
+//   .flat()
+//   .filter((value, index, self) => self.indexOf(value) === index);
